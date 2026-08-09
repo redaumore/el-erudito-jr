@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Question } from '../../types/game';
-import { ArrowUp, ArrowDown, Shuffle, CheckCircle, HelpCircle } from 'lucide-react';
+import { ArrowUp, ArrowDown, Shuffle, CheckCircle } from 'lucide-react';
 import { sounds } from '../../utils/sound';
 
 interface SequenceGameProps {
@@ -48,35 +48,11 @@ export const SequenceGame: React.FC<SequenceGameProps> = ({
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      {/* Criteria Banner */}
-      <div
-        style={{
-          background: 'rgba(37, 99, 235, 0.15)',
-          border: '1px solid rgba(37, 99, 235, 0.35)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1rem 1.25rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-        }}
-      >
-        <HelpCircle size={24} className="text-blue-400" style={{ color: '#60A5FA', flexShrink: 0 }} />
-        <div>
-          <div style={{ fontSize: '0.75rem', color: '#93C5FD', fontWeight: 700, textTransform: 'uppercase' }}>
-            Criterio de orden
-          </div>
-          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: '#FFFFFF' }}>
-            {question.orderCriteria || 'Ordená los elementos correctamente'}
-          </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+      {question.orderCriteria && (
+        <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#93C5FD', textAlign: 'center' }}>
+          {question.orderCriteria}
         </div>
-      </div>
-
-      {/* Instructions */}
-      {question.instructions && (
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.4' }}>
-          {question.instructions}
-        </p>
       )}
 
       {/* Items List to Order */}

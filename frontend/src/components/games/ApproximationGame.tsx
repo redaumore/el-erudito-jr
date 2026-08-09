@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Question } from '../../types/game';
-import { Calculator, CheckCircle, Plus, Minus, RotateCcw } from 'lucide-react';
+import { CheckCircle, Plus, Minus, RotateCcw } from 'lucide-react';
 import { sounds } from '../../utils/sound';
 
 interface ApproximationGameProps {
@@ -39,29 +39,6 @@ export const ApproximationGame: React.FC<ApproximationGameProps> = ({
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      {/* Unit & Target Topic Banner */}
-      <div
-        style={{
-          background: 'rgba(245, 158, 11, 0.15)',
-          border: '1px solid rgba(245, 158, 11, 0.35)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1.25rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1rem',
-        }}
-      >
-        <Calculator size={28} className="text-amber-400" style={{ color: '#FBBF24', flexShrink: 0 }} />
-        <div>
-          <div style={{ fontSize: '0.75rem', color: '#FDE68A', fontWeight: 700, textTransform: 'uppercase' }}>
-            Desafío de Estimación Numérica
-          </div>
-          <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#FFFFFF', marginTop: '0.2rem' }}>
-            {question.instructions || question.title}
-          </div>
-        </div>
-      </div>
-
       {/* Numeric Display / Input Box */}
       <div
         style={{

@@ -87,16 +87,18 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({
         </div>
 
         {/* Title */}
-        <h2
-          style={{
-            fontSize: '1.75rem',
-            fontWeight: 800,
-            color: result.isCorrect ? '#34D399' : '#F87171',
-            marginBottom: '0.75rem',
-          }}
-        >
-          {result.isCorrect ? '¡Respuesta Correcta!' : 'Primer Error Encontrado'}
-        </h2>
+        {result.isCorrect && (
+          <h2
+            style={{
+              fontSize: '1.75rem',
+              fontWeight: 800,
+              color: '#34D399',
+              marginBottom: '0.75rem',
+            }}
+          >
+            ¡Respuesta Correcta!
+          </h2>
+        )}
 
         {/* Dynamic First-Mistake / Success Message */}
         <div

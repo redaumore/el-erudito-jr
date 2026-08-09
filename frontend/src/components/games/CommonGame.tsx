@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Question } from '../../types/game';
-import { Layers, Lightbulb, CheckCircle } from 'lucide-react';
+import { Lightbulb, CheckCircle } from 'lucide-react';
 import { sounds } from '../../utils/sound';
 
 interface CommonGameProps {
@@ -33,29 +33,6 @@ export const CommonGame: React.FC<CommonGameProps> = ({
 
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      {/* Category Header */}
-      <div
-        style={{
-          background: 'rgba(16, 185, 129, 0.15)',
-          border: '1px solid rgba(16, 185, 129, 0.35)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1.25rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1rem',
-        }}
-      >
-        <Layers size={28} className="text-emerald-400" style={{ color: '#34D399', flexShrink: 0 }} />
-        <div>
-          <div style={{ fontSize: '0.75rem', color: '#A7F3D0', fontWeight: 700, textTransform: 'uppercase' }}>
-            Desafío: ¿Qué tienen en común?
-          </div>
-          <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#FFFFFF', marginTop: '0.2rem' }}>
-            {question.instructions || 'Descubrí la característica o concepto que comparten todos los elementos:'}
-          </div>
-        </div>
-      </div>
-
       {/* Grid of Common Items */}
       <div
         style={{

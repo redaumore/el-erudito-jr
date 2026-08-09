@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PairItem, Question } from '../../types/game';
-import { CheckCircle, RotateCcw, Link2, X } from 'lucide-react';
+import { CheckCircle, RotateCcw, X } from 'lucide-react';
 import { sounds } from '../../utils/sound';
 
 interface AssociationGameProps {
@@ -101,29 +101,6 @@ export const AssociationGame: React.FC<AssociationGameProps> = ({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      {/* Instructions */}
-      <div
-        style={{
-          background: 'rgba(239, 68, 68, 0.15)',
-          border: '1px solid rgba(239, 68, 68, 0.35)',
-          borderRadius: 'var(--radius-md)',
-          padding: '1rem 1.25rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-        }}
-      >
-        <Link2 size={24} className="text-red-400" style={{ color: '#F87171', flexShrink: 0 }} />
-        <div>
-          <div style={{ fontSize: '0.75rem', color: '#FCA5A5', fontWeight: 700, textTransform: 'uppercase' }}>
-            Consigna de Asociación
-          </div>
-          <div style={{ fontSize: '1rem', fontWeight: 600, color: '#FFFFFF' }}>
-            Tocá un elemento de la izquierda y luego su correspondiente de la derecha para unirlos.
-          </div>
-        </div>
-      </div>
-
       {/* Dual Columns Grid */}
       <div
         style={{

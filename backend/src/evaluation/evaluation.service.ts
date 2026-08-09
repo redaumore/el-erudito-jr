@@ -56,7 +56,7 @@ export class EvaluationService {
             item: userItem,
             actualPosition: i + 1,
           },
-          message: `¡Casi! El primer error está en la posición ${i + 1}: "${userItem}" no corresponde a ese lugar.`,
+          message: `"${userItem}" NO corresponde a la posición ${i + 1}.`,
         };
       }
     }
@@ -103,7 +103,7 @@ export class EvaluationService {
             pairLeft: pair.left,
             pairRight: pair.right,
           },
-          message: `El primer error está en la asociación de "${pair.left}": no corresponde con "${pair.right}".`,
+          message: `"${pair.left}" NO corresponde con "${pair.right}".`,
         };
       }
     }

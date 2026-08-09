@@ -146,18 +146,18 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100dvh', width: '100%' }}>
       {/* Navigation & Header */}
       <header
         style={{
           borderBottom: '1px solid var(--border-subtle)',
-          background: 'rgba(11, 15, 25, 0.8)',
+          background: 'rgba(11, 15, 25, 0.85)',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
           position: 'sticky',
           top: 0,
           zIndex: 100,
-          padding: '0.875rem 1.5rem',
+          padding: '0.6rem 0.85rem',
         }}
       >
         <div
@@ -167,6 +167,7 @@ export const App: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            gap: '0.5rem',
           }}
         >
           {/* Logo & Title */}
@@ -175,36 +176,38 @@ export const App: React.FC = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '0.75rem',
+              gap: '0.5rem',
               cursor: 'pointer',
             }}
           >
             <div
               style={{
-                width: '38px',
-                height: '38px',
-                borderRadius: '10px',
+                width: '34px',
+                height: '34px',
+                borderRadius: '8px',
                 background: 'linear-gradient(135deg, #3B82F6, #EF4444)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.25rem',
+                fontSize: '1.1rem',
+                flexShrink: 0,
               }}
             >
               🎓
             </div>
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <span style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                <span style={{ fontWeight: 800, fontSize: '1.05rem', letterSpacing: '-0.02em', color: '#FFFFFF' }}>
                   El Erudito Jr.
                 </span>
                 <span
+                  className="hide-mobile"
                   style={{
-                    fontSize: '0.7rem',
+                    fontSize: '0.65rem',
                     fontWeight: 700,
                     background: 'rgba(59, 130, 246, 0.2)',
                     color: '#60A5FA',
-                    padding: '0.15rem 0.45rem',
+                    padding: '0.1rem 0.4rem',
                     borderRadius: 'var(--radius-full)',
                     border: '1px solid rgba(59, 130, 246, 0.4)',
                   }}
@@ -216,20 +219,21 @@ export const App: React.FC = () => {
           </div>
 
           {/* Controls & Session Score */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             {score.attempts > 0 && (
               <div
                 style={{
                   background: 'rgba(255, 255, 255, 0.06)',
                   border: '1px solid rgba(255, 255, 255, 0.1)',
-                  padding: '0.35rem 0.75rem',
+                  padding: '0.3rem 0.6rem',
                   borderRadius: 'var(--radius-full)',
-                  fontSize: '0.85rem',
+                  fontSize: '0.75rem',
                   fontWeight: 700,
                   color: '#34D399',
+                  whiteSpace: 'nowrap',
                 }}
               >
-                Aciertos: {score.correct}/{score.attempts}
+                {score.correct}/{score.attempts}
               </div>
             )}
 
@@ -240,16 +244,17 @@ export const App: React.FC = () => {
               style={{
                 background: 'rgba(255, 255, 255, 0.08)',
                 color: soundEnabled ? '#F8FAFC' : 'var(--text-muted)',
-                width: '38px',
-                height: '38px',
+                width: '34px',
+                height: '34px',
                 borderRadius: 'var(--radius-md)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                flexShrink: 0,
               }}
               title={soundEnabled ? 'Silenciar sonidos' : 'Activar sonidos'}
             >
-              {soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
+              {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
             </button>
 
             {/* Admin / Bank button */}
@@ -262,24 +267,25 @@ export const App: React.FC = () => {
               style={{
                 background: 'rgba(255, 255, 255, 0.08)',
                 color: 'var(--text-secondary)',
-                padding: '0.5rem 0.85rem',
+                padding: '0.45rem 0.65rem',
                 borderRadius: 'var(--radius-md)',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                fontSize: '0.85rem',
+                gap: '0.35rem',
+                fontSize: '0.8rem',
                 fontWeight: 600,
               }}
+              title="Banco de Tarjetas"
             >
               <Database size={16} />
-              <span>Banco de Tarjetas</span>
+              <span className="hide-mobile">Banco de Tarjetas</span>
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '1.5rem 1rem' }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '0.5rem' }}>
         {!currentQuestion ? (
           <DeckSelector
             onSelectCategory={handleSelectCategory}
