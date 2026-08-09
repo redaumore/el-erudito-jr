@@ -1,6 +1,6 @@
 import { CategoryType, EvaluationResult, PairItem, Question } from '../types/game';
 
-const API_BASE = '/api';
+const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '') + '/api';
 
 export const api = {
   async getRandomQuestion(category: CategoryType, excludeId?: string): Promise<Question> {
