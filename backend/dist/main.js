@@ -19,7 +19,7 @@ async function bootstrap() {
     }));
     const port = process.env.PORT || 3001;
     await app.listen(port);
-    logger.log(`Herudito Jr. Backend running on: http://localhost:${port}/api`);
+    logger.log(`El Erudito Jr. Backend running on: http://localhost:${port}/api`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
