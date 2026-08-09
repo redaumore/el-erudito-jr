@@ -11,5 +11,9 @@
     "dev:frontend": "npm --prefix frontend run dev",
     "build": "npm --prefix backend run build && npm --prefix frontend run build",
     "test": "npm --prefix backend run test"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0",
+    "express": "^4.19.2"
   }
 }
